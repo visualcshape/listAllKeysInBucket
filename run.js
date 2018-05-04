@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
-const ListAllKeysInBucket = require('./list-all-key-in-bucket');
 const fs = require('fs');
+const ListAllKeysInBucket = require('./list-all-key-in-bucket');
 
 AWS.config.loadFromPath('aws-credential.json');
 

@@ -2,9 +2,6 @@
 
 const AWS = require('aws-sdk');
 
-const s3 = new AWS.S3();
-
-
 /**
  * List all keys in bucket
  * @param {String} bucketName The bucket name want to list
@@ -12,6 +9,7 @@ const s3 = new AWS.S3();
  * @param {Object} options Reserved for future use
  */
 function listAllKeysInBucket(bucketName, callback, options){
+    const s3 = new AWS.S3();
     let keyList = null;
     let listParams = {
         Bucket: bucketName
