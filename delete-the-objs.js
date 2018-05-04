@@ -31,14 +31,14 @@ const listAllKeysInBucketCallback = ((err, result)=>{
     });
 });
 
-function listAllKeysInBucket(bucketName, callback){
+function listAllKeysInBucket(bucketName, callback, options){
     let keyList = null;
     let listParams = {
         Bucket: bucketName
     };
-    arguments[2] != null? keyList=arguments[2]:keyList= new Array();
-    if(arguments[3] != null){
-        listParams['ContinuationToken'] = arguments[3];
+    arguments[3] != null? keyList=arguments[3]:keyList= new Array();
+    if(arguments[4] != null){
+        listParams['ContinuationToken'] = arguments[4];
     }
 
     console.info('Number of keys listed: ' + keyList.length);
@@ -53,7 +53,7 @@ function listAllKeysInBucket(bucketName, callback){
         keyList = keyList.concat(keys);
         
         if(IsTruncated){
-            process.nextTick(listAllKeysInBucket, Name, callback, keyList, NextContinuationToken);
+            process.nextTick(listAllKeysInBucket, Name, callback, options, keyList, NextContinuationToken);
         }else{
             callback(null, {
                 keys: keyList,
