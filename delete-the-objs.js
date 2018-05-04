@@ -64,3 +64,8 @@ function listAllKeysInBucket(bucketName, callback){
 }
 
 listAllKeysInBucket('test-object-delete', listAllKeysInBucketCallback);
+
+
+module.exports = {
+    listAllKeysInBucket: listAllKeysInBucket
+};
