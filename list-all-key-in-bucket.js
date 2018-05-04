@@ -4,33 +4,15 @@ const fs = require('fs');
 
 const AWS = require('aws-sdk');
 
-AWS.config.loadFromPath('aws-credential.json');
-
 const s3 = new AWS.S3();
 
-const listAllKeysInBucketCallback = ((err, result)=>{
-    if(err){
-        console.error(err);
-        return;
-    }
 
-    console.info(`The bucket ${result.bucketName} has ${result.keys.length} keys.`);
-    console.info('Writing keys to the file');
-    let data = '';
-    for(const aKey of result.keys){
-        data += aKey + '\n';
-    }
-    data = data.slice(0, data.length - 1);
-    fs.writeFile('keys.txt', data, err=>{
-        if(err){
-            console.error('Failed on writing file!');
-            console.error(err);
-            return;
-        }
-        console.info('Complete');
-    });
-});
-
+/**
+ * List all keys in bucket
+ * @param {String} bucketName The bucket name want to list
+ * @param {*} callback callback function function(err, result)
+ * @param {Object} options Reserved for future use
+ */
 function listAllKeysInBucket(bucketName, callback, options){
     let keyList = null;
     let listParams = {
@@ -62,9 +44,6 @@ function listAllKeysInBucket(bucketName, callback, options){
         }
     });
 }
-
-listAllKeysInBucket('test-object-delete', listAllKeysInBucketCallback);
-
 
 module.exports = {
     listAllKeysInBucket: listAllKeysInBucket

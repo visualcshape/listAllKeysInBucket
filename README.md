@@ -9,6 +9,8 @@ npm install
 
 ## API Usage
 
+You should AWS.config.loadconfig
+
 ` listAllKeysInBucket(bucketName, callback, options) `
 
 > `bucketName`: The bucket name you want to list
