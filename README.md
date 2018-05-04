@@ -9,7 +9,7 @@ npm install
 
 ## API Usage
 
-You should AWS.config.loadconfig
+You should `AWS.config.loadFromPath(credentialPath)` before using.
 
 ` listAllKeysInBucket(bucketName, callback, options) `
 
