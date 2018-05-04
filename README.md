@@ -1,6 +1,6 @@
 # AWS LIST ALL KEY IN BUCKET
 
-A simple script to list all keys in the AWS S3 bucket. I will add batch output sometimes so it can list even bigger bucket.
+A simple script to list all keys in the AWS S3 bucket. I will add batch output sooner or later so it can list even bigger bucket.
 You may know that LIST in AWS requires $$.
 
 ## Installation
